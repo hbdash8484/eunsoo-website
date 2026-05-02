@@ -4,7 +4,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      style={{ backgroundColor: "#edeae3", padding: "56px 28px 52px" }}
+      className="px-4 pt-10 pb-10 md:px-8 md:pt-14 md:pb-14"
+      style={{ backgroundColor: "#edeae3" }}
     >
       <p
         className="font-dm text-text-sage uppercase tracking-[0.12em] mb-6"
@@ -14,16 +15,10 @@ export default function Hero() {
       </p>
 
       <div className="mb-5">
-        <p
-          className="font-dm font-normal text-text-forest"
-          style={{ fontSize: "48px", lineHeight: 1.2 }}
-        >
+        <p className="font-dm font-normal text-text-forest text-3xl md:text-5xl leading-tight">
           Hello, I&apos;m
         </p>
-        <p
-          className="font-playfair italic text-accent"
-          style={{ fontSize: "48px", lineHeight: 1.2 }}
-        >
+        <p className="font-playfair italic text-accent text-3xl md:text-5xl leading-tight">
           Danielle.
         </p>
       </div>
@@ -35,11 +30,7 @@ export default function Hero() {
 
       <p
         className="font-dm font-light text-text-mid mb-6"
-        style={{
-          fontSize: "13px",
-          lineHeight: 1.85,
-          maxWidth: "480px",
-        }}
+        style={{ fontSize: "13px", lineHeight: 1.85, maxWidth: "480px" }}
       >
         I love creating art — from watercolors and crayon to digital
         illustration. My favorite things to draw are cats, flowers, and the
@@ -50,11 +41,8 @@ export default function Hero() {
         {tags.map((tag) => (
           <span
             key={tag}
-            className="font-dm text-text-mid px-3 py-1 rounded-full"
-            style={{
-              fontSize: "11px",
-              border: "0.5px solid #9aaa96",
-            }}
+            className="font-dm text-text-mid px-3 py-1 rounded-full min-h-[36px] flex items-center"
+            style={{ fontSize: "11px", border: "0.5px solid #9aaa96" }}
           >
             {tag}
           </span>

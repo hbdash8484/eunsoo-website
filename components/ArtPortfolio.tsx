@@ -17,7 +17,7 @@ export default async function ArtPortfolio() {
   );
 
   return (
-    <section id="portfolio" className="px-7 py-14">
+    <section id="portfolio" className="px-4 py-10 md:px-8 md:py-14">
       <p
         className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-8"
         style={{ fontSize: "11px" }}
@@ -25,23 +25,21 @@ export default async function ArtPortfolio() {
         Art Portfolio
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {folderPreviews.map((folder) => (
           <Link
             key={folder.slug}
             href={`/portfolio/${folder.slug}`}
-            className="group block rounded-lg overflow-hidden border border-divider hover:shadow-md transition-shadow"
+            className="group block rounded-lg overflow-hidden border border-divider hover:shadow-md transition-shadow min-h-[44px]"
             style={{ backgroundColor: "#f5f3ee" }}
           >
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ height: "160px" }}
-            >
+            <div className="relative w-full aspect-[4/3] overflow-hidden">
               {folder.heroImage ? (
                 <Image
                   src={getDriveThumbnailUrl(folder.heroImage.id)}
                   alt={folder.label}
                   fill
+                  loading="lazy"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   unoptimized
                 />
@@ -59,7 +57,7 @@ export default async function ArtPortfolio() {
                 </div>
               )}
             </div>
-            <div className="flex items-center justify-between px-4 py-3">
+            <div className="flex items-center justify-between px-4 min-h-[44px]">
               <span className="font-dm font-medium text-text-forest text-sm">
                 {folder.label}
               </span>

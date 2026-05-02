@@ -16,11 +16,11 @@ export default function GalleryGrid({ images }: { images: DriveFile[] }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {images.map((img) => (
           <button
             key={img.id}
-            className="relative overflow-hidden rounded-lg aspect-square group focus:outline-none"
+            className="relative overflow-hidden rounded-lg aspect-square group focus:outline-none min-h-[44px]"
             style={{ border: "1px solid #9aaa96" }}
             onClick={() => {
               setLightboxSrc(getDriveImageUrl(img.id));
@@ -31,6 +31,7 @@ export default function GalleryGrid({ images }: { images: DriveFile[] }) {
               src={getDriveThumbnailUrl(img.id)}
               alt={img.name}
               fill
+              loading="lazy"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               unoptimized
             />

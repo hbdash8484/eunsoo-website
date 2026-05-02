@@ -25,26 +25,28 @@ export default function Lightbox({ src, alt, onClose }: LightboxProps) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{ backgroundColor: "rgba(42,61,46,0.85)" }}
+      style={{ backgroundColor: "rgba(42,61,46,0.92)" }}
       onClick={onClose}
     >
+      {/* Close button — always top-right, 44px touch target */}
       <button
-        className="absolute top-5 right-6 text-white text-2xl font-light leading-none hover:opacity-70 transition-opacity"
+        className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-white text-2xl font-light hover:opacity-70 transition-opacity z-10"
         onClick={onClose}
         aria-label="Close"
       >
         ×
       </button>
+
+      {/* Mobile: full screen image. Desktop: centered modal with padding */}
       <div
-        className="relative max-w-4xl max-h-[90vh] w-full mx-4"
+        className="relative w-full h-full md:w-auto md:h-auto md:max-w-4xl md:max-h-[90vh] md:mx-8"
         onClick={(e) => e.stopPropagation()}
       >
         <Image
           src={src}
           alt={alt}
-          width={1200}
-          height={900}
-          className="object-contain w-full h-full max-h-[90vh]"
+          fill
+          className="object-contain md:relative md:inset-auto"
           unoptimized
         />
       </div>

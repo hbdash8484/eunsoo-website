@@ -29,11 +29,11 @@ export default async function PortfolioPage({ params }: Props) {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#edeae3" }}>
       <Nav />
-      <main className="flex-1 px-7 py-12">
+      <main className="flex-1 px-4 py-8 md:px-8 md:py-12">
         <div className="flex items-center gap-4 mb-8">
           <Link
             href="/#portfolio"
-            className="font-dm text-text-sage hover:text-text-forest transition-colors text-sm"
+            className="font-dm text-text-sage hover:text-text-forest transition-colors text-sm min-h-[44px] flex items-center"
           >
             ← Back
           </Link>
