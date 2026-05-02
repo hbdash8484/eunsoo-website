@@ -11,12 +11,12 @@ const interests = [
 export default function AboutMe() {
   return (
     <section id="about" className="px-4 py-10 md:px-8 md:py-14">
-      <p
+      <h2
         className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-8"
         style={{ fontSize: "11px" }}
       >
         About Me
-      </p>
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
         <div>

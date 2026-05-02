@@ -4,12 +4,12 @@ export default function Projects() {
   return (
     <section id="projects" className="px-4 py-10 md:px-8 md:py-14">
       <div className="flex items-center gap-4 mb-8">
-        <p
+        <h2
           className="font-dm font-medium text-text-forest uppercase tracking-[0.1em]"
           style={{ fontSize: "11px" }}
         >
           Projects
-        </p>
+        </h2>
         <span className="font-dm text-text-sage" style={{ fontSize: "11px" }}>
           · Coming soon
         </span>
@@ -25,10 +25,8 @@ export default function Projects() {
             <div className="p-4">
               <div
                 className="w-full flex items-center justify-center rounded"
-                style={{
-                  aspectRatio: "4/3",
-                  border: "1.5px dashed #9aaa96",
-                }}
+                style={{ aspectRatio: "4/3", border: "1.5px dashed #9aaa96" }}
+                aria-hidden
               >
                 <span
                   className="font-dm text-text-sage"

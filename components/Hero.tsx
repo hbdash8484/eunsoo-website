@@ -14,14 +14,14 @@ export default function Hero() {
         Probably drawing or reading right now · Seoul
       </p>
 
-      <div className="mb-5">
-        <p className="font-dm font-normal text-text-forest text-3xl md:text-5xl leading-tight">
+      <h1 className="mb-5">
+        <span className="block font-dm font-normal text-text-forest text-3xl md:text-5xl leading-tight">
           Hello, I&apos;m
-        </p>
-        <p className="font-playfair italic text-accent text-3xl md:text-5xl leading-tight">
+        </span>
+        <span className="block font-playfair italic text-accent text-3xl md:text-5xl leading-tight">
           Danielle.
-        </p>
-      </div>
+        </span>
+      </h1>
 
       <div
         className="mb-5"

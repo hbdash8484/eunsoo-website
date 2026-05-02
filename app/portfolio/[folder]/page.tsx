@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getImages } from "@/lib/google-drive";
@@ -19,6 +20,15 @@ export async function generateStaticParams() {
   return Object.keys(FOLDER_LABELS).map((folder) => ({ folder }));
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const label = FOLDER_LABELS[params.folder];
+  if (!label) return {};
+  return {
+    title: `${label} | Danielle Eunsoo Kim`,
+    description: `Artworks from ${label}`,
+  };
+}
+
 export default async function PortfolioPage({ params }: Props) {
   const { folder } = params;
   const label = FOLDER_LABELS[folder];
@@ -37,12 +47,12 @@ export default async function PortfolioPage({ params }: Props) {
           >
             ← Back
           </Link>
-          <span
+          <h1
             className="font-dm font-medium text-text-forest"
             style={{ fontSize: "15px" }}
           >
             {label}
-          </span>
+          </h1>
         </div>
 
         {images.length === 0 ? (

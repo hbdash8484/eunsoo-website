@@ -24,30 +24,49 @@ export default function Lightbox({ src, alt, onClose }: LightboxProps) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
       className="fixed inset-0 z-50 flex items-center justify-center"
       style={{ backgroundColor: "rgba(42,61,46,0.92)" }}
       onClick={onClose}
     >
-      {/* Close button — always top-right, 44px touch target */}
       <button
         className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-white text-2xl font-light hover:opacity-70 transition-opacity z-10"
         onClick={onClose}
-        aria-label="Close"
+        aria-label="Close image viewer"
       >
         ×
       </button>
 
-      {/* Mobile: full screen image. Desktop: centered modal with padding */}
+      {/* Mobile: full screen */}
       <div
-        className="relative w-full h-full md:w-auto md:h-auto md:max-w-4xl md:max-h-[90vh] md:mx-8"
+        className="md:hidden relative w-full h-full"
         onClick={(e) => e.stopPropagation()}
       >
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-contain md:relative md:inset-auto"
+          className="object-contain"
           unoptimized
+          priority
+        />
+      </div>
+
+      {/* Desktop: centered modal */}
+      <div
+        className="hidden md:block relative mx-8"
+        style={{ width: "80vw", maxWidth: "896px", height: "80vh" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          unoptimized
+          priority
         />
       </div>
     </div>

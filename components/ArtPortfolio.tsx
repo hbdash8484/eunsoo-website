@@ -18,15 +18,15 @@ export default async function ArtPortfolio() {
 
   return (
     <section id="portfolio" className="px-4 py-10 md:px-8 md:py-14">
-      <p
+      <h2
         className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-8"
         style={{ fontSize: "11px" }}
       >
         Art Portfolio
-      </p>
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        {folderPreviews.map((folder) => (
+        {folderPreviews.map((folder, i) => (
           <Link
             key={folder.slug}
             href={`/portfolio/${folder.slug}`}
@@ -37,9 +37,10 @@ export default async function ArtPortfolio() {
               {folder.heroImage ? (
                 <Image
                   src={getDriveThumbnailUrl(folder.heroImage.id)}
-                  alt={folder.label}
+                  alt={`${folder.label} artwork preview`}
                   fill
-                  loading="lazy"
+                  priority={i === 0}
+                  loading={i === 0 ? "eager" : "lazy"}
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   unoptimized
                 />
@@ -61,7 +62,7 @@ export default async function ArtPortfolio() {
               <span className="font-dm font-medium text-text-forest text-sm">
                 {folder.label}
               </span>
-              <span className="text-text-sage group-hover:translate-x-1 transition-transform">
+              <span className="text-text-sage group-hover:translate-x-1 transition-transform" aria-hidden>
                 →
               </span>
             </div>

@@ -15,9 +15,33 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://eunsoo-website.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Danielle Eunsoo Kim",
-  description: "Art portfolio — watercolor, crayon, digital illustration",
+  metadataBase: new URL(baseUrl),
+  title: "Danielle Eunsoo Kim — Art Portfolio",
+  description:
+    "Art portfolio of Danielle Eunsoo Kim, a young artist at Seoul Foreign School. Watercolor, digital art, and more.",
+  keywords: [
+    "art portfolio",
+    "kids art",
+    "watercolor",
+    "digital art",
+    "Seoul Foreign School",
+  ],
+  openGraph: {
+    title: "Danielle Eunsoo Kim — Art Portfolio",
+    description:
+      "Young artist based in Seoul. Watercolor, digital art, illustration.",
+    url: baseUrl,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Danielle Eunsoo Kim — Art Portfolio",
+    description:
+      "Young artist based in Seoul. Watercolor, digital art, illustration.",
+  },
 };
 
 export default function RootLayout({
