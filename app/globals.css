@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #edeae3;
+  --foreground: #2a3d2e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #edeae3;
+  color: #2a3d2e;
+  font-family: var(--font-dm-sans), sans-serif;
+}
