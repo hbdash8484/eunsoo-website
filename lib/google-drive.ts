@@ -21,7 +21,7 @@ export async function getImages(folder: string) {
 }
 
 export function getDriveImageUrl(fileId: string) {
-  return `https://drive.google.com/uc?export=view&id=${fileId}`;
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=s0`;
 }
 
 export function getDriveThumbnailUrl(fileId: string) {
