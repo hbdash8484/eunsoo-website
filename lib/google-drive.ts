@@ -11,7 +11,7 @@ export async function getImages(folder: string) {
   const res = await fetch(
     `https://www.googleapis.com/drive/v3/files` +
       `?q='${folderId}'+in+parents+and+mimeType+contains+'image/'` +
-      `&fields=files(id,name,createdTime)` +
+      `&fields=files(id,name,createdTime,imageMediaMetadata(width,height))` +
       `&orderBy=createdTime` +
       `&key=${process.env.GOOGLE_API_KEY}`,
     { next: { revalidate: 60 } }
