@@ -1,24 +1,35 @@
 const interests = [
   "Cats",
   "Squirrels",
-  "Pink & purple",
-  "Cycling",
+  "Dragons",
+  "Pink & Purple",
+  "Rollerblades",
   "Camping",
   "Watercolor",
-  "Digital art",
+  "Books",
+  "Family",
+  "Friends",
 ];
 
 export default function AboutMe() {
   return (
     <section id="about" className="px-4 py-10 md:px-8 md:py-14">
-      <h2
-        className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-8"
-        style={{ fontSize: "11px" }}
-      >
-        About Me
-      </h2>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <h2
+          className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-0"
+          style={{ fontSize: "11px" }}
+        >
+          About Me
+        </h2>
+        <h2
+          className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] hidden md:block mb-0"
+          style={{ fontSize: "11px" }}
+        >
+          Interests
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-8">
         <div>
           <p
             className="font-dm font-light text-text-mid mb-3"
@@ -36,12 +47,12 @@ export default function AboutMe() {
         </div>
 
         <div>
-          <p
-            className="font-dm text-text-sage uppercase tracking-[0.1em] mb-4"
-            style={{ fontSize: "10px" }}
+          <h2
+            className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-4 md:hidden"
+            style={{ fontSize: "11px" }}
           >
             Interests
-          </p>
+          </h2>
           <div className="flex flex-wrap gap-2">
             {interests.map((interest) => (
               <span

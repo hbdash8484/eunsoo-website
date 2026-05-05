@@ -1,4 +1,4 @@
-const tags = ["Watercolor", "Crayon", "Colored pencil", "Cats & nature"];
+const tags = ["Drawing", "Writing", "Animals", "Kindness"];
 
 export default function Hero() {
   return (
@@ -32,9 +32,8 @@ export default function Hero() {
         className="font-dm font-light text-text-mid mb-6"
         style={{ fontSize: "13px", lineHeight: 1.85, maxWidth: "480px" }}
       >
-        I love creating art — from watercolors and crayon to digital
-        illustration. My favorite things to draw are cats, flowers, and the
-        universe.
+        I have a lot of hobbies, but my favorite things to do are drawing and
+        writing. And I believe that everybody deserves kindness.
       </p>
 
       <div className="flex flex-wrap gap-2">
