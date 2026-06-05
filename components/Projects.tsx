@@ -5,6 +5,7 @@ const LIVE_PROJECTS = [
   {
     slug: "a-hearts-leap",
     title: "A Heart's Leap",
+    date: "May 2026",
     description: "A short fantasy story about courage, friendship, and finding your brave.",
     image: "/projects/key-visual.png",
   },
@@ -51,6 +52,12 @@ export default function Projects() {
                   →
                 </span>
               </div>
+              <p
+                className="font-dm font-light text-text-sage mt-1"
+                style={{ fontSize: "11px" }}
+              >
+                {project.date}
+              </p>
               <p
                 className="font-dm font-light text-text-mid mt-1"
                 style={{ fontSize: "12px" }}
