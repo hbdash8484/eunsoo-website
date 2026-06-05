@@ -6,7 +6,7 @@ const LIVE_PROJECTS = [
     slug: "a-hearts-leap",
     title: "A Heart's Leap",
     description: "A short fantasy story about courage, friendship, and finding your brave.",
-    image: "/projects/a-hearts-leap.png",
+    image: "/projects/key-visual.png",
   },
 ];
 

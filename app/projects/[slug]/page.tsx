@@ -14,7 +14,8 @@ interface Project {
   title: string;
   author: string;
   description: string;
-  image: string;
+  keyVisual: string;
+  middleVisual: string;
   story: StoryBlock[];
 }
 
@@ -23,97 +24,180 @@ const PROJECTS: Record<string, Project> = {
     title: "A Heart's Leap",
     author: "Danielle",
     description: "A short fantasy story about courage, friendship, and finding your brave.",
-    image: "/projects/a-hearts-leap.png",
+    keyVisual: "/projects/key-visual.png",
+    middleVisual: "/projects/middle-visual.png",
     story: [
       { type: "heading", text: "Who is my roommate?" },
       {
         type: "paragraph",
-        text: "The gate creaked open. Wonders spilled into her head alongside the worries. Of course, Quartz sighed as she thought, Will I ever be brave? What if something goes wrong? What if I mess up? What if it fails?",
+        text: "The gate creaked open and wonders spilled in her head with the worries, of course. Quartz sighed as she thought, Will I ever be brave? She was peculiar at least, that's what they told her. Her heart thumped in her chest and her nervousness slowly crept up her body. What if I do something wrong? What if I mess up? What if… What if…",
       },
       {
         type: "paragraph",
-        text: '"BOOT!" Crystal pounced on Quartz, completely falling on top of her.',
+        text: "And of course, this had to be the time Crystal scared her again!",
       },
       {
         type: "paragraph",
-        text: 'Quartz cried "Ooh!" Surprised, she stood up and asked, "Why did you have to wake me right now?"',
+        text: '"BOO!" Crystal pounced on Quartz, completely falling on top of her.',
       },
       {
         type: "paragraph",
-        text: '"Because it is funny," Crystal reasoned, giggling.',
+        text: '"AHH!" Quartz cried. Surprised, she stood up, brushed the dust off her scales and asked, "Why did you have to scare me right now!"',
       },
       {
         type: "paragraph",
-        text: 'Quartz giggled too. "Ugh, fine. We\'ll go meet our new roommate anyway." She answered, opening the door and slipping out.',
+        text: '"Because it\'s so funny — I mean, you should\'ve looked at your face," Crystal giggled.',
       },
       {
         type: "paragraph",
-        text: "She met her best friend Herb, who had signed up for passing information scrolls. Herb laid two scrolls across the table. \"This is your scroll, and the other is for Crystal. It has all the information,\" Herb said. She took the scrolls and passed one to Crystal, who started reading.",
-      },
-      { type: "heading", text: "The Stranger" },
-      {
-        type: "paragraph",
-        text: '"Hear what?" Crystal answered, curiously. Quartz trembled — something wasn\'t right. The door creaked. A shadowy figure appeared. Quartz switched into camouflage mode.',
+        text: '"Ugh, fine. We\'ll be late receiving our roommates anyway," Quartz answered, opening the door and slipping in.',
       },
       {
         type: "paragraph",
-        text: '"There you are," said a sly voice. "I wanted to see you." The stranger stepped smoothly forward as dark scales glimmered in the sunlight.',
+        text: 'She met her best friend Herb, who had signed up for passing information scrolls. Herb slid two scrolls across the table. "This is your scroll, and the other one is Crystal\'s. It has all the information," Herb said. She took the scrolls and passed one to Crystal, who started reading.',
       },
       {
         type: "paragraph",
-        text: '"What? Get away from me!" Crystal cried. Quartz said nothing, staying perfectly still as the black-scaled dragon crept silently toward Crystal.',
-      },
-      { type: "heading", text: "The Stranger Looked Suspicious" },
-      {
-        type: "paragraph",
-        text: "They arrived at a glowing castle. A sign read: Queen Comer's Castle. Quartz thought that maybe she didn't have to do this herself. Still, she had come. They landed inside and saw velvet wallpaper covered with portraits of the Dragon Queen. Despite being deep inside Comer's guarded castle, Quartz knew there was nobody who had invited her.",
+        text: '"Our dorm is number 365," Crystal informed, walking toward the second tunnel on the left. Quartz started following, her heart beating — she wondered who her roommate was.',
       },
       {
         type: "paragraph",
-        text: "Well, Quartz was there — but she was in camouflage mode, so nobody could see her. Did that count?",
+        text: "As she walked toward her dorm, she heard two voices.",
       },
       {
         type: "paragraph",
-        text: "They reached a room that was mostly dark, lit only by a small fire and the faint glow of a lamp. Queen Comer looked merely pleased, and luckily hadn't noticed the door. Quartz stepped out of camouflage. She crept to Crystal and shook her awake. \"What is this place? Where are we?\" Quartz asked.",
+        text: '"So my roommate is Crystal — is this possible?" a voice said, sharply.',
       },
       {
         type: "paragraph",
-        text: '"It\'s Comer\'s palace. She captured me. I followed the stranger here," Crystal said.',
+        text: '"Mine is Quartz, so it is possible," a sweet voice confirmed.',
       },
       {
         type: "paragraph",
-        text: '"Camouflage mode!" Quartz whispered. "Oh..." Crystal\'s eyes lit up. A small flame ignited from her tail.',
+        text: "Quartz recognized the second voice immediately.",
       },
       {
         type: "paragraph",
-        text: '"You got your electricity back!" Quartz cried happily. They made a plan: Crystal would burn through the locks; Quartz would keep them covered. "Is there someone who can wait outside for us?" Quartz asked.',
+        text: '"Cinnamon!" she cried, jumping into his arms as they pulled into a hug.',
       },
       {
         type: "paragraph",
-        text: '"Oh, alright." Crystal nodded. She released an electricity bolt. Quartz channeled it, and Crystal grabbed the current with her tail, burning through the door. Cinnamon watched quietly from the corner.',
+        text: '"How did you get accepted?" Cinnamon asked.',
       },
       {
         type: "paragraph",
-        text: "As they burst out into open air — through sweeps of deep greens and blues — they saw Cinnamon waiting at the edge of the trees.",
+        text: '"That sounds like what I would ask you!" Quartz answered, giggling.',
       },
       {
         type: "paragraph",
-        text: '"You kiddo — you didn\'t really have to come here," Cinnamon muttered, gesturing toward a path through the clovers.',
+        text: '"Anyways, let\'s go on a tour of the school — reunions can wait," Thunder proclaimed. They walked through the bustling halls of Crystal Academy. Crystal spotted a music room, so of course, Quartz followed her in.',
       },
       {
         type: "paragraph",
-        text: '"Actually, you were in trouble!" Cinnamon huffed, then grinned. "Trust me, it was worth it!" Quartz laughed.',
+        text: 'As they tested and looked at the instruments, she heard a slithering voice: "I know you\'re in there." Quartz shivered, shaken by the sudden unusual feeling.',
       },
-      { type: "paragraph", text: '"That was fun," Crystal smiled.' },
       {
         type: "paragraph",
-        text: '"It was," Quartz agreed. Crystal looked more determined now, more bold. They turned to the horizon and saw the mountain glimmering in the sunlight. Quartz smiled, thinking of the journey that lay ahead — welcoming them toward a new adventure.',
+        text: '"Did you hear that?" she asked in a hushed voice.',
+      },
+      {
+        type: "paragraph",
+        text: '"Hear what?" Crystal answered, clueless.',
+      },
+      {
+        type: "paragraph",
+        text: 'Quartz trembled. Were her ears not working right? The door creaked. A shadowy figure approached. Quartz went into camouflage mode.',
+      },
+      {
+        type: "paragraph",
+        text: '"There you are," cried a sly voice. "I wanted to see you since—" the stranger said smugly as the dragon\'s black scales glimmered in the sunlight.',
+      },
+      {
+        type: "paragraph",
+        text: "Terror gripped her chest. What if Crystal gets hurt? she thought sadly.",
+      },
+      {
+        type: "paragraph",
+        text: "Quietly, she tiptoed to the corner as the black-scaled dragon crept closer and closer to Crystal. She wondered why Crystal wasn't doing anything. Crystal looked scared — petrified — but still. The dragon inserted some kind of drug into Crystal's tail, and Crystal slumped to the ground, completely powerless.",
+      },
+      {
+        type: "paragraph",
+        text: "Quartz wanted to help Crystal, but her talons were plastered to the ground. She was terrified.",
+      },
+      {
+        type: "paragraph",
+        text: "Quartz followed the stranger outside, walking right behind Crystal's blank body. After a few hours of flying, walking, and resting, the stranger looked suspicious.",
+      },
+      { type: "heading", text: "The stranger looked suspicious." },
+      {
+        type: "paragraph",
+        text: "They arrived at a gloomy-looking castle. In front of it was a sign that read: Queen Comet's Palace. So she thought that maybe the black dragon might be Queen Comet herself.",
+      },
+      {
+        type: "paragraph",
+        text: "She shuddered as they landed inside the castle and saw the velvet wallpaper, complete with portraits of the Queen. Despite living in a castle herself, it felt strange walking through the queenly corridors of Queen Comet's castle. She noticed there was no one except Queen Comet and Crystal's shadowy silhouette.",
+      },
+      {
+        type: "paragraph",
+        text: "Well, Quartz was also there — but she was in camouflage mode, so nobody could see her. So did that count?",
+      },
+      {
+        type: "paragraph",
+        text: "They reached a room which was empty, except for a bed and a small bedside table. Queen Comet walked out the door looking merely pleased, but luckily, she forgot to lock it.",
+      },
+      {
+        type: "paragraph",
+        text: 'Quartz returned to her normal pink self and advanced to shake Crystal awake. "What is this place? Where are we?" Crystal asked.',
+      },
+      {
+        type: "paragraph",
+        text: '"It\'s Comet\'s palace. She captured you. I followed you here in my camouflage mode," Quartz answered.',
+      },
+      {
+        type: "paragraph",
+        text: '"Oh…" Crystal sighed — then ignited a small flame.',
+      },
+      {
+        type: "paragraph",
+        text: '"You got your electricity back!" Quartz cried happily.',
+      },
+      {
+        type: "paragraph",
+        text: '"They made a decent plan and tiptoed behind Obsidian to the throne room. "I sent a message to Cinnamon so he can wait for us outside," Quartz whispered.',
+      },
+      {
+        type: "paragraph",
+        text: '"Oh, all right," Crystal answered.',
+      },
+      {
+        type: "paragraph",
+        text: "Quartz walked closer, then — STAB! She drove her tail sap into Comet's leg. Comet was now paralyzed. Comet howled in pain and started slashing the air with her claws. Crystal darted to her side and used her electricity to burn her into ashes. Comet was probably thinking she had been foolish.",
+      },
+      {
+        type: "paragraph",
+        text: 'As they soared to a lush forest of deep greens and blues, they saw Cinnamon waiting for them. "You know, you didn\'t really have to come here," Quartz said while descending into a patch of clovers.',
+      },
+      {
+        type: "paragraph",
+        text: '"Yes, I did — you were in trouble!" Cinnamon huffed.',
+      },
+      {
+        type: "paragraph",
+        text: '"Trust me, it was fine," Crystal reassured him.',
+      },
+      {
+        type: "paragraph",
+        text: '"Yeah, we were fine," Quartz repeated.',
+      },
+      {
+        type: "paragraph",
+        text: "Quartz felt different. She felt more determined, more bold. They took flight, and could see the mountain glimmering in the sunlight — the mountain that had started the journey — welcoming them to a new adventure.",
       },
       {
         type: "paragraph",
         text: "And somehow, this time, she was ready.",
       },
-      { type: "closing", text: "Quartz was more ready than ever." },
+      { type: "closing", text: "Quartz was ready, more ready than ever." },
     ],
   },
 };
@@ -139,7 +223,20 @@ export default function ProjectPage({ params }: Props) {
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#edeae3" }}>
       <Nav />
       <main className="flex-1">
-        {/* header */}
+
+        {/* key visual — full width */}
+        <div className="w-full" style={{ backgroundColor: "#f5f3ee" }}>
+          <Image
+            src={project.keyVisual}
+            alt={project.title}
+            width={1200}
+            height={600}
+            className="w-full h-auto"
+            priority
+          />
+        </div>
+
+        {/* title + back */}
         <div className="px-4 pt-10 pb-6 md:px-8 md:pt-14">
           <Link
             href="/#projects"
@@ -162,25 +259,8 @@ export default function ProjectPage({ params }: Props) {
           </p>
         </div>
 
-        {/* spread image */}
-        <div className="px-4 pb-10 md:px-8">
-          <div
-            className="rounded-xl overflow-hidden border border-divider w-full"
-            style={{ backgroundColor: "#f5f3ee" }}
-          >
-            <Image
-              src={project.image}
-              alt={`${project.title} story spread`}
-              width={1600}
-              height={900}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
-        </div>
-
         {/* story text */}
-        <div className="px-4 pb-16 md:px-8">
+        <div className="px-4 pb-12 md:px-8">
           <div className="max-w-2xl">
             {project.story.map((block, i) => {
               if (block.type === "heading") {
@@ -217,6 +297,20 @@ export default function ProjectPage({ params }: Props) {
             })}
           </div>
         </div>
+
+        {/* middle visual */}
+        <div className="px-4 pb-16 md:px-8">
+          <div className="max-w-sm">
+            <Image
+              src={project.middleVisual}
+              alt="illustration"
+              width={600}
+              height={600}
+              className="w-full h-auto rounded-xl border border-divider"
+            />
+          </div>
+        </div>
+
       </main>
       <Footer />
     </div>
