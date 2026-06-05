@@ -163,7 +163,7 @@ const PROJECTS: Record<string, Project> = {
       },
       {
         type: "paragraph",
-        text: '"They made a decent plan and tiptoed behind Obsidian to the throne room. "I sent a message to Cinnamon so he can wait for us outside," Quartz whispered.',
+        text: '"They made a decent plan and tiptoed behind Comet to the throne room. "I sent a message to Cinnamon so he can wait for us outside," Quartz whispered.',
       },
       {
         type: "paragraph",
