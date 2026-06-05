@@ -224,19 +224,7 @@ export default function ProjectPage({ params }: Props) {
       <Nav />
       <main className="flex-1">
 
-        {/* key visual — full width */}
-        <div className="w-full" style={{ backgroundColor: "#f5f3ee" }}>
-          <Image
-            src={project.keyVisual}
-            alt={project.title}
-            width={1200}
-            height={600}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-
-        {/* title + back */}
+        {/* back + key visual + title */}
         <div className="px-4 pt-10 pb-6 md:px-8 md:pt-14">
           <Link
             href="/#projects"
@@ -245,6 +233,18 @@ export default function ProjectPage({ params }: Props) {
           >
             ← Back
           </Link>
+
+          <div className="max-w-sm mt-6">
+            <Image
+              src={project.keyVisual}
+              alt={project.title}
+              width={600}
+              height={600}
+              className="w-full h-auto rounded-xl border border-divider"
+              priority
+            />
+          </div>
+
           <h1
             className="font-playfair italic text-text-forest mt-6"
             style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)", lineHeight: 1.2 }}
