@@ -31,6 +31,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw project source assets (web-ready copies live in public/projects/)
+/SoulSparkU/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

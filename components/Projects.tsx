@@ -2,25 +2,31 @@ import Link from "next/link";
 import Image from "next/image";
 
 const FEATURED = {
-  slug: "a-hearts-leap",
-  title: "A Heart’s Leap",
-  label: "Story · May 2026",
+  slug: "ali-baba-bongo-bandits",
+  title: "Ali Baba & the Bongo Bandits",
+  label: "Musical · 2026",
   quote:
-    "A short fantasy story about courage, friendship, and finding your brave.",
-  blurb: "A fantasy adventure — written and illustrated by Danielle.",
-  image: "/projects/key-visual.png",
+    "A school musical — 80 performers, two months of rehearsal, two sold-out nights.",
+  blurb: "Danielle played Jib and the Bongo Bandit Crew at Seoul Foreign School.",
+  image: "/projects/alibaba-key.jpg",
 };
 
 // Other projects (besides the featured one above).
 // Add new projects here — each also needs a matching entry in
 // app/projects/[slug]/page.tsx so the "Read the story" page exists.
 const MORE: { slug: string; title: string; meta: string; image: string }[] = [
-  // {
-  //   slug: "your-project-slug",
-  //   title: "Project Title",
-  //   meta: "Story · 2026",
-  //   image: "/projects/your-image.png",
-  // },
+  {
+    slug: "soulsparku",
+    title: "SoulSparkU",
+    meta: "Leadership · May 2026",
+    image: "/projects/soulsparku/dreamboard.jpg",
+  },
+  {
+    slug: "a-hearts-leap",
+    title: "A Heart’s Leap",
+    meta: "Story · May 2026",
+    image: "/projects/key-visual.png",
+  },
 ];
 
 export default function Projects() {
