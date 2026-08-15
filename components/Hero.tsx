@@ -1,52 +1,39 @@
-const tags = ["Drawing", "Writing", "Animals", "Kindness"];
-
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="px-4 pt-10 pb-10 md:px-8 md:pt-14 md:pb-14"
-      style={{ backgroundColor: "#edeae3" }}
+      className="px-5 md:px-[54px] pt-14 pb-12 md:pt-20 md:pb-16 bg-wall"
     >
       <p
-        className="font-dm text-text-sage uppercase tracking-[0.12em] mb-6"
-        style={{ fontSize: "11px" }}
+        className="font-sans font-semibold text-rose-soft uppercase mb-4 md:mb-5"
+        style={{ fontSize: "11px", letterSpacing: "0.22em" }}
       >
-        Probably drawing or reading right now · Seoul
+        Probably drawing right now · Seoul
       </p>
 
-      <h1 className="mb-5">
-        <span className="block font-dm font-normal text-text-forest text-3xl md:text-5xl leading-tight">
+      <h1 className="font-serif text-ink leading-[0.95]" style={{ letterSpacing: "-0.02em" }}>
+        <span
+          className="block font-sans font-normal text-muted mb-2 md:mb-3"
+          style={{ fontSize: "clamp(16px, 3vw, 22px)", letterSpacing: "0.02em" }}
+        >
           Hello, I&apos;m
         </span>
-        <span className="block font-playfair italic text-accent text-3xl md:text-5xl leading-tight">
+        <span
+          className="block italic text-rose"
+          style={{ fontSize: "clamp(46px, 9vw, 92px)" }}
+        >
           Danielle.
         </span>
       </h1>
 
-      <div
-        className="mb-5"
-        style={{ width: "40px", height: "1px", backgroundColor: "#9aaa96" }}
-      />
+      <div className="w-[60px] h-0.5 bg-ink my-6 md:my-7" />
 
       <p
-        className="font-dm font-light text-text-mid mb-6"
-        style={{ fontSize: "13px", lineHeight: 1.85, maxWidth: "480px" }}
+        className="font-sans text-muted"
+        style={{ fontSize: "16px", lineHeight: 1.75, maxWidth: "40ch" }}
       >
-        I have a lot of hobbies, but my favorite things to do are drawing and
-        writing. And I believe that everybody deserves kindness.
+        I love drawing and writing — and I believe everybody deserves kindness.
       </p>
-
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="font-dm text-text-mid px-3 py-1 rounded-full min-h-[36px] flex items-center"
-            style={{ fontSize: "11px", border: "0.5px solid #9aaa96" }}
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
     </section>
   );
 }

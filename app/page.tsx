@@ -7,15 +7,15 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#edeae3" }}>
+    <div className="min-h-screen flex flex-col bg-wall">
       <Nav />
       <main className="flex-1">
         <Hero />
-        <div style={{ height: "1px", backgroundColor: "#9aaa96", opacity: 0.3 }} />
+        <div className="h-px bg-line" />
         <ArtPortfolio />
-        <div style={{ height: "1px", backgroundColor: "#9aaa96", opacity: 0.3 }} />
+        <div className="h-px bg-line" />
         <Projects />
-        <div style={{ height: "1px", backgroundColor: "#9aaa96", opacity: 0.3 }} />
+        <div className="h-px bg-line" />
         <AboutMe />
       </main>
       <Footer />

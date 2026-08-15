@@ -9,17 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "bg-primary": "#edeae3",
-        "bg-secondary": "#f5f3ee",
-        "text-forest": "#2a3d2e",
-        "text-mid": "#4a5e45",
-        "text-sage": "#7a8f76",
-        accent: "#5a7a5e",
-        divider: "#9aaa96",
+        // Gallery palette — a small museum, warm white walls
+        wall: "#fdfcfa", // page background (gallery wall)
+        ink: "#211d1a", // primary text / titles
+        muted: "#5c554c", // body copy
+        faint: "#9a9488", // captions, meta, quiet labels
+        line: "#ece8e1", // hairline rules & borders
+        rose: "#c65f45", // strong accent (name, links)
+        "rose-soft": "#c07a68", // soft accent (eyebrows, labels)
+        mat: "#f4efe6", // artwork mat (frame background)
+        matline: "#ece6db", // mat border
       },
       fontFamily: {
-        playfair: ["var(--font-playfair)", "serif"],
-        dm: ["var(--font-dm-sans)", "sans-serif"],
+        serif: ["Georgia", '"Times New Roman"', "serif"],
+        sans: ["-apple-system", '"Helvetica Neue"', "Helvetica", "Arial", "sans-serif"],
       },
     },
   },

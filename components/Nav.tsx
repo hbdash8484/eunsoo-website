@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 const links = [
-  { label: "Art Portfolio", href: "#portfolio" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Projects", href: "#projects" },
-  { label: "About Me", href: "#about" },
+  { label: "About", href: "#about" },
 ];
 
 export default function Nav() {
@@ -20,36 +20,28 @@ export default function Nav() {
   };
 
   return (
-    <nav
-      className="sticky top-0 z-50"
-      style={{
-        backgroundColor: "#f5f3ee",
-        borderBottom: "1px solid rgba(42,61,46,0.12)",
-      }}
-    >
-      <div className="flex items-center justify-between px-4 md:px-8 h-14">
+    <nav className="sticky top-0 z-50 bg-wall/95 backdrop-blur-sm border-b border-line">
+      <div className="flex items-center justify-between px-5 md:px-[54px] h-16">
         <Link
           href="/"
-          className="font-dm font-medium text-sm text-text-forest tracking-[0.08em] uppercase"
+          className="font-sans font-semibold text-ink uppercase"
+          style={{ fontSize: "11px", letterSpacing: "0.26em" }}
         >
           Danielle Eunsoo Kim
         </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-6">
-          {links.map((link, i) => (
-            <span key={link.href} className="flex items-center gap-6">
-              {i > 0 && (
-                <span className="text-divider text-xs select-none">|</span>
-              )}
-              <a
-                href={link.href}
-                onClick={(e) => scrollTo(e, link.href)}
-                className="font-dm font-light text-sm text-text-mid hover:text-text-forest transition-colors min-h-[44px] flex items-center"
-              >
-                {link.label}
-              </a>
-            </span>
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => scrollTo(e, link.href)}
+              className="font-sans text-faint hover:text-ink transition-colors uppercase min-h-[44px] flex items-center"
+              style={{ fontSize: "11px", letterSpacing: "0.14em" }}
+            >
+              {link.label}
+            </a>
           ))}
         </div>
 
@@ -60,41 +52,30 @@ export default function Nav() {
           aria-label="Toggle menu"
         >
           <span
-            className="block w-5 h-px transition-all duration-200"
-            style={{
-              backgroundColor: "#2a3d2e",
-              transform: open ? "translateY(6px) rotate(45deg)" : "none",
-            }}
+            className="block w-5 h-px bg-ink transition-all duration-200"
+            style={{ transform: open ? "translateY(6px) rotate(45deg)" : "none" }}
           />
           <span
-            className="block w-5 h-px transition-all duration-200"
-            style={{
-              backgroundColor: "#2a3d2e",
-              opacity: open ? 0 : 1,
-            }}
+            className="block w-5 h-px bg-ink transition-all duration-200"
+            style={{ opacity: open ? 0 : 1 }}
           />
           <span
-            className="block w-5 h-px transition-all duration-200"
-            style={{
-              backgroundColor: "#2a3d2e",
-              transform: open ? "translateY(-6px) rotate(-45deg)" : "none",
-            }}
+            className="block w-5 h-px bg-ink transition-all duration-200"
+            style={{ transform: open ? "translateY(-6px) rotate(-45deg)" : "none" }}
           />
         </button>
       </div>
 
       {/* Mobile dropdown */}
       {open && (
-        <div
-          className="md:hidden flex flex-col px-4 pb-4"
-          style={{ borderTop: "1px solid rgba(42,61,46,0.08)" }}
-        >
+        <div className="md:hidden flex flex-col px-5 pb-4 border-t border-line">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => scrollTo(e, link.href)}
-              className="font-dm font-light text-sm text-text-mid hover:text-text-forest transition-colors min-h-[44px] flex items-center"
+              className="font-sans text-muted hover:text-ink transition-colors uppercase min-h-[44px] flex items-center"
+              style={{ fontSize: "12px", letterSpacing: "0.14em" }}
             >
               {link.label}
             </a>

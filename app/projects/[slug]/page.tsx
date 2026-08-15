@@ -220,55 +220,62 @@ export default function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#edeae3" }}>
+    <div className="min-h-screen flex flex-col bg-wall">
       <Nav />
       <main className="flex-1">
 
         {/* back + key visual + title */}
-        <div className="px-4 pt-10 pb-6 md:px-8 md:pt-14">
+        <div className="px-5 md:px-[54px] pt-12 pb-8 md:pt-16">
           <Link
             href="/#projects"
-            className="font-dm text-text-sage hover:text-text-forest transition-colors"
-            style={{ fontSize: "12px" }}
+            className="font-sans text-faint hover:text-ink transition-colors uppercase inline-flex items-center min-h-[44px]"
+            style={{ fontSize: "11px", letterSpacing: "0.16em" }}
           >
             ← Back
           </Link>
 
-          <div className="max-w-sm mt-6">
+          <p
+            className="font-sans font-semibold text-rose-soft uppercase mt-6 mb-4"
+            style={{ fontSize: "11px", letterSpacing: "0.2em" }}
+          >
+            <span className="text-rose">✦</span> {project.description}
+          </p>
+
+          <div className="max-w-md">
             <Image
               src={project.keyVisual}
               alt={project.title}
               width={600}
               height={600}
-              className="w-full h-auto rounded-xl border border-divider"
+              className="w-full h-auto rounded-sm border border-matline shadow-[0_20px_44px_-22px_rgba(0,0,0,0.4)]"
               priority
             />
           </div>
 
           <h1
-            className="font-playfair italic text-text-forest mt-6"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)", lineHeight: 1.2 }}
+            className="font-serif italic text-rose mt-8"
+            style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.5rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
             {project.title}
           </h1>
           <p
-            className="font-dm font-light mt-2"
-            style={{ fontSize: "13px", color: "#7a8f76" }}
+            className="font-sans text-faint uppercase mt-3"
+            style={{ fontSize: "12px", letterSpacing: "0.14em" }}
           >
-            by {project.author}.
+            Written &amp; illustrated by {project.author}
           </p>
         </div>
 
         {/* story text */}
-        <div className="px-4 pb-12 md:px-8">
-          <div className="max-w-2xl">
+        <div className="px-5 md:px-[54px] pb-12">
+          <div className="max-w-[38rem]">
             {project.story.map((block, i) => {
               if (block.type === "heading") {
                 return (
                   <h2
                     key={i}
-                    className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mt-10 mb-4"
-                    style={{ fontSize: "11px" }}
+                    className="font-sans font-semibold text-faint uppercase mt-12 mb-5"
+                    style={{ fontSize: "11px", letterSpacing: "0.2em" }}
                   >
                     {block.text}
                   </h2>
@@ -278,8 +285,8 @@ export default function ProjectPage({ params }: Props) {
                 return (
                   <p
                     key={i}
-                    className="font-playfair italic text-text-mid mt-8"
-                    style={{ fontSize: "15px" }}
+                    className="font-serif italic text-rose mt-10"
+                    style={{ fontSize: "clamp(18px, 2.4vw, 22px)", lineHeight: 1.5 }}
                   >
                     {block.text}
                   </p>
@@ -288,8 +295,8 @@ export default function ProjectPage({ params }: Props) {
               return (
                 <p
                   key={i}
-                  className="font-dm font-light text-text-mid mb-4"
-                  style={{ fontSize: "14px", lineHeight: 1.85 }}
+                  className="font-serif text-muted mb-5"
+                  style={{ fontSize: "17px", lineHeight: 1.75 }}
                 >
                   {block.text}
                 </p>
@@ -299,14 +306,14 @@ export default function ProjectPage({ params }: Props) {
         </div>
 
         {/* middle visual */}
-        <div className="px-4 pb-16 md:px-8">
-          <div className="max-w-sm">
+        <div className="px-5 md:px-[54px] pb-16">
+          <div className="max-w-md">
             <Image
               src={project.middleVisual}
               alt="illustration"
               width={600}
               height={600}
-              className="w-full h-auto rounded-xl border border-divider"
+              className="w-full h-auto rounded-sm border border-matline shadow-[0_20px_44px_-22px_rgba(0,0,0,0.4)]"
             />
           </div>
         </div>

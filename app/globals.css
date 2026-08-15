@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #edeae3;
-  --foreground: #2a3d2e;
+  --background: #fdfcfa;
+  --foreground: #211d1a;
 }
 
 html {
@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: #edeae3;
-  color: #2a3d2e;
-  font-family: var(--font-dm-sans), sans-serif;
+  background-color: #fdfcfa;
+  color: #211d1a;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

@@ -28,7 +28,7 @@ export default function Lightbox({ src, alt, onClose }: LightboxProps) {
       aria-modal="true"
       aria-label="Image viewer"
       className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{ backgroundColor: "rgba(42,61,46,0.92)" }}
+      style={{ backgroundColor: "rgba(28,25,22,0.94)" }}
       onClick={onClose}
     >
       <button

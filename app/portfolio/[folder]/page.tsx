@@ -37,27 +37,27 @@ export default async function PortfolioPage({ params }: Props) {
   const images = await getImages(folder);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#edeae3" }}>
+    <div className="min-h-screen flex flex-col bg-wall">
       <Nav />
-      <main className="flex-1 px-4 py-8 md:px-8 md:py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <Link
-            href="/#portfolio"
-            className="font-dm text-text-sage hover:text-text-forest transition-colors text-sm min-h-[44px] flex items-center"
-          >
-            ← Back
-          </Link>
-          <h1
-            className="font-dm font-medium text-text-forest"
-            style={{ fontSize: "15px" }}
-          >
-            {label}
-          </h1>
-        </div>
+      <main className="flex-1 px-5 md:px-[54px] py-12 md:py-16">
+        <Link
+          href="/#portfolio"
+          className="font-sans text-faint hover:text-ink transition-colors uppercase inline-flex items-center min-h-[44px]"
+          style={{ fontSize: "11px", letterSpacing: "0.16em" }}
+        >
+          ← Back
+        </Link>
+
+        <h1
+          className="font-serif text-ink mt-3 mb-10"
+          style={{ fontSize: "clamp(30px, 5vw, 48px)", letterSpacing: "-0.02em" }}
+        >
+          {label}
+        </h1>
 
         {images.length === 0 ? (
           <div className="flex items-center justify-center py-24">
-            <p className="font-dm text-text-sage text-sm">
+            <p className="font-serif italic text-faint" style={{ fontSize: "16px" }}>
               No images in this folder yet. Add some to Google Drive!
             </p>
           </div>

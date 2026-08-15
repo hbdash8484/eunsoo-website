@@ -24,8 +24,7 @@ export default function GalleryGrid({ images }: { images: DriveFile[] }) {
           return (
             <button
               key={img.id}
-              className="block w-full mb-3 overflow-hidden rounded-lg group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent break-inside-avoid"
-              style={{ border: "1px solid #9aaa96" }}
+              className="block w-full mb-3 overflow-hidden rounded-sm group focus:outline-none focus-visible:ring-2 focus-visible:ring-rose break-inside-avoid border border-matline"
               onClick={() => {
                 setLightboxSrc(getDriveImageUrl(img.id));
                 setLightboxAlt(img.name);

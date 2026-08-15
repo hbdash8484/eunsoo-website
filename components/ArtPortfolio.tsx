@@ -17,58 +17,73 @@ export default async function ArtPortfolio() {
   );
 
   return (
-    <section id="portfolio" className="px-4 py-10 md:px-8 md:py-14">
-      <h2
-        className="font-dm font-medium text-text-forest uppercase tracking-[0.1em] mb-8"
-        style={{ fontSize: "11px" }}
-      >
-        Art Portfolio
-      </h2>
+    <section id="portfolio" className="px-5 md:px-[54px] py-14 md:py-16 bg-wall">
+      {/* section header — gallery label + italic sub */}
+      <div className="flex items-baseline justify-between mb-8 md:mb-10">
+        <span
+          className="font-sans font-semibold text-faint uppercase"
+          style={{ fontSize: "11px", letterSpacing: "0.2em" }}
+        >
+          Selected Work
+        </span>
+        <span className="font-serif italic text-rose-soft" style={{ fontSize: "15px" }}>
+          Primary 1 – 4
+        </span>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
         {folderPreviews.map((folder, i) => (
           <Link
             key={folder.slug}
             href={`/portfolio/${folder.slug}`}
-            className="group block rounded-lg overflow-hidden border border-divider hover:shadow-md transition-shadow min-h-[44px]"
-            style={{ backgroundColor: "#f5f3ee" }}
+            className="group block"
           >
-            <div className="relative w-full aspect-[4/3] overflow-hidden">
-              {folder.heroImage ? (
-                <Image
-                  src={getDriveThumbnailUrl(folder.heroImage.id)}
-                  alt={`${folder.label} artwork preview`}
-                  fill
-                  priority={i === 0}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  unoptimized
-                />
-              ) : (
-                <div
-                  className="w-full h-full flex items-center justify-center"
-                  style={{ backgroundColor: "#e8e5dd" }}
-                >
-                  <span
-                    className="font-dm text-text-sage"
-                    style={{ fontSize: "12px" }}
-                  >
-                    No images yet
-                  </span>
-                </div>
-              )}
+            {/* matted frame — art floats on a mat, never cropped (object-contain) */}
+            <div className="aspect-[4/5] bg-mat border border-matline rounded-sm p-3 md:p-4 flex items-center justify-center transition-shadow duration-300 group-hover:shadow-[0_16px_40px_-18px_rgba(0,0,0,0.35)]">
+              <div className="relative w-full h-full">
+                {folder.heroImage ? (
+                  <Image
+                    src={getDriveThumbnailUrl(folder.heroImage.id)}
+                    alt={`${folder.label} artwork preview`}
+                    fill
+                    priority={i === 0}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                    className="object-contain drop-shadow-[0_4px_14px_rgba(0,0,0,0.2)]"
+                    unoptimized
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="font-sans text-faint" style={{ fontSize: "12px" }}>
+                      No images yet
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="flex items-center justify-between px-4 min-h-[44px]">
-              <span className="font-dm font-medium text-text-forest text-sm">
+
+            <div className="flex items-center justify-between mt-3.5 min-h-[36px]">
+              <span className="font-serif text-ink" style={{ fontSize: "17px" }}>
                 {folder.label}
               </span>
-              <span className="text-text-sage group-hover:translate-x-1 transition-transform" aria-hidden>
+              <span
+                className="text-faint group-hover:text-rose group-hover:translate-x-1 transition-all"
+                aria-hidden
+              >
                 →
               </span>
             </div>
           </Link>
         ))}
       </div>
+
+      <p
+        className="font-serif italic text-faint mt-6"
+        style={{ fontSize: "13.5px" }}
+      >
+        Each piece is shown whole — original proportions, matted like a framed
+        print, never cropped.
+      </p>
     </section>
   );
 }
