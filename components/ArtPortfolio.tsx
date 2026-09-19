@@ -3,10 +3,10 @@ import Image from "next/image";
 import { getImages, getDriveThumbnailUrl } from "@/lib/google-drive";
 
 const FOLDERS = [
-  { slug: "primary-1-2", label: "Primary 1–2" },
-  { slug: "primary-3", label: "Primary 3" },
-  { slug: "primary-4", label: "Primary 4" },
   { slug: "primary-5", label: "Primary 5" },
+  { slug: "primary-4", label: "Primary 4" },
+  { slug: "primary-3", label: "Primary 3" },
+  { slug: "primary-1-2", label: "Primary 1–2" },
 ];
 
 export default async function ArtPortfolio() {
