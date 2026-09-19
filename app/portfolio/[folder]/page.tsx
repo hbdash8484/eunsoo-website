@@ -10,6 +10,7 @@ const FOLDER_LABELS: Record<string, string> = {
   "primary-1-2": "Primary 1–2",
   "primary-3": "Primary 3",
   "primary-4": "Primary 4",
+  "primary-5": "Primary 5",
 };
 
 interface Props {

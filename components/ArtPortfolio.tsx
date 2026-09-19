@@ -6,6 +6,7 @@ const FOLDERS = [
   { slug: "primary-1-2", label: "Primary 1–2" },
   { slug: "primary-3", label: "Primary 3" },
   { slug: "primary-4", label: "Primary 4" },
+  { slug: "primary-5", label: "Primary 5" },
 ];
 
 export default async function ArtPortfolio() {
@@ -27,7 +28,7 @@ export default async function ArtPortfolio() {
           Selected Work
         </span>
         <span className="font-serif italic text-rose-soft" style={{ fontSize: "15px" }}>
-          Primary 1 – 4
+          Primary 1 – 5
         </span>
       </div>
 

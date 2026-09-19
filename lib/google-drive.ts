@@ -2,6 +2,7 @@ const FOLDERS: Record<string, string | undefined> = {
   "primary-1-2": process.env.DRIVE_FOLDER_PRIMARY_12,
   "primary-3": process.env.DRIVE_FOLDER_PRIMARY_3,
   "primary-4": process.env.DRIVE_FOLDER_PRIMARY_4,
+  "primary-5": process.env.DRIVE_FOLDER_PRIMARY_5,
 };
 
 export async function getImages(folder: string) {
