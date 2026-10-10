@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import ArtPortfolio from "@/components/ArtPortfolio";
 import Projects from "@/components/Projects";
+import Reading from "@/components/Reading";
 import AboutMe from "@/components/AboutMe";
 import Footer from "@/components/Footer";
 
@@ -15,6 +16,8 @@ export default function Home() {
         <ArtPortfolio />
         <div className="h-px bg-line" />
         <Projects />
+        <div className="h-px bg-line" />
+        <Reading />
         <div className="h-px bg-line" />
         <AboutMe />
       </main>
