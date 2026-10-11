@@ -6,7 +6,7 @@ description: Add a book to the website's Reading & Reflections section from phot
 # Adding a reading card to Reading & Reflections
 
 Danielle fills in a printed reading card after each book. The user sends a photo; you turn it into one
-entry in `BOOKS` in `lib/reading.ts`. Everything on the site (home cards, `/reading/[slug]` page, sitemap,
+entry in `BOOKS` in `lib/reading.ts`. Everything on the site (home cards, the `/reading` shelf, `/reading/[slug]` page, sitemap,
 "N books · N reflections · favorite question" line, book-buddy links) is generated from that entry —
 **do not edit components or pages to add a book.**
 
@@ -37,7 +37,7 @@ The question sheet is in [questions.md](questions.md). Read it to know what each
   "Little Woman" / "Laisa May alcott" → "Little Women" / "Louisa May Alcott". Character names follow the
   book's spelling too ("Sally's" → "Sallie's" in Little Women).
 - A card covering a series ("The Wild Robot 1, 2, 3") → title `"The Wild Robot (Books 1–3)"`.
-- The original photo is **not** shown on the site. Don't copy it into `public/`.
+- The photo of the reading card is **not** shown on the site. Don't copy it into `public/`.
 
 ## 3. Write the entry
 
@@ -53,7 +53,8 @@ book goes after every full-date book from the same year (its month is unknown), 
   finished: "2026-09-28",            // card says 9.28.2026 → YYYY-MM-DD; year only (or "2026?") → "2026"
   rating: 4.5,
   oneLine: "The whole book in one line, transcribed by the rules above.",
-  cover: "#5f7a6a",                  // see palette below
+  cover: "#5f7a6a",                  // see palette below (shown only if there's no coverImage)
+  coverImage: "/books/kebab-case-title.jpg",  // real cover, see "Book cover" below
   // buddyNote: "both set in the 1960s",  // only if Q13 names another book on the site
   answers: [
     { q: 4, text: "..." },          // same order as on the card
@@ -64,6 +65,17 @@ book goes after every full-date book from the same year (its month is unknown), 
 - **cover**: pick from this palette, and don't reuse the color of the book directly next to it:
   `#c65f45` (rose), `#5f7a6a` (sage), `#4f6382` (slate blue), `#b0854a` (ochre), `#7a5c7e` (plum),
   `#3f5f5c` (deep teal).
+- **Book cover**: find the real cover on Open Library (free, no key):
+  1. `https://openlibrary.org/search.json?title=<title>&author=<author>&limit=1&fields=key,title,cover_i`
+  2. For other editions: `https://openlibrary.org<work key>/editions.json?limit=200` → each entry's `covers[0]`.
+  3. Download candidates (`https://covers.openlibrary.org/b/id/<id>-L.jpg`) into the scratchpad, look at them,
+     and pick an **English** edition whose title reads clearly at card size. Skip translations and near-duplicates.
+  4. If there are several real choices (classics have dozens of editions), show the user 2 options and ask —
+     or use a photo of Danielle's own copy if the user sends one.
+  5. Save it stripped of metadata: `ffmpeg -i <picked>.jpg -map_metadata -1 -q:v 3 public/books/<slug>.jpg`,
+     and set `coverImage: "/books/<slug>.jpg"`. If no cover exists, leave `coverImage` out — the colored
+     tile is used instead.
+  6. A series card ("Books 1–3") uses the first book's cover.
 - **buddyNote**: book-buddy links are detected automatically when a Q13 ("Book buddies") answer contains
   another site book's exact title. If so, add a short `buddyNote` (lowercase, no period) summarizing the
   connection she described, e.g. `"both set in the 1960s, both with go-go boots"`.
@@ -72,13 +84,14 @@ book goes after every full-date book from the same year (its month is unknown), 
 ## 4. Verify
 
 1. `npx tsc --noEmit`
-2. `preview_start` `eunsoo-dev`, check `/#reading` (new card first, cover title fits, rating dots right)
-   and `/reading/<slug>` (answers in order, no console errors). Check mobile width too.
+2. `preview_start` `eunsoo-dev`, check `/#reading` (home shows the newest 3 books), `/reading` (book on the
+   right year shelf, cover title fits) and `/reading/<slug>` (answers in order, rating dots right, no console
+   errors). Check mobile width too.
 
 ## 5. Report and ship
 
 - Show the user the transcribed answers and list every spelling fix you made, plus any word to confirm.
-- Commit only `lib/reading.ts` (and this skill, if changed) with a message like
+- Commit only `lib/reading.ts`, `public/books/<slug>.jpg` (and this skill, if changed) with a message like
   `Add <Book Title> to Reading & Reflections`, then push to `main` — only when the user asks.
 
 ## If the question sheet changes

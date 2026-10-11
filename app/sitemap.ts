@@ -1,34 +1,26 @@
 import type { MetadataRoute } from "next";
+import { PORTFOLIO_FOLDERS } from "@/lib/portfolio";
+import { PROJECTS } from "@/lib/projects";
 import { BOOKS } from "@/lib/reading";
-
-const PORTFOLIO_FOLDERS = ["primary-1-2", "primary-3", "primary-4"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://eunsoo-website.vercel.app";
 
-  const portfolioRoutes = PORTFOLIO_FOLDERS.map((folder) => ({
-    url: `${baseUrl}/portfolio/${folder}`,
+  const page = (path: string, priority: number) => ({
+    url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  const readingRoutes = BOOKS.map((book) => ({
-    url: `${baseUrl}/reading/${book.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+    priority,
+  });
 
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    ...portfolioRoutes,
-    ...readingRoutes,
+    page("", 1),
+    page("/portfolio", 0.8),
+    ...PORTFOLIO_FOLDERS.map((f) => page(`/portfolio/${f.slug}`, 0.8)),
+    page("/projects", 0.7),
+    ...PROJECTS.map((p) => page(`/projects/${p.slug}`, 0.7)),
+    page("/reading", 0.6),
+    ...BOOKS.map((b) => page(`/reading/${b.slug}`, 0.6)),
   ];
 }

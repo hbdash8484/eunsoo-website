@@ -1,9 +1,12 @@
+import { Container } from "@/components/layout";
+
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="px-5 md:px-[54px] pt-14 pb-12 md:pt-20 md:pb-16 bg-wall"
+      className="pt-14 pb-12 md:pt-20 md:pb-16 bg-wall"
     >
+      <Container>
       <p
         className="font-sans font-semibold text-rose-soft uppercase mb-4 md:mb-5"
         style={{ fontSize: "11px", letterSpacing: "0.22em" }}
@@ -34,6 +37,7 @@ export default function Hero() {
       >
         I love drawing and writing — and I believe everybody deserves kindness.
       </p>
+      </Container>
     </section>
   );
 }

@@ -48,7 +48,8 @@ export interface Book {
   finished: string; // YYYY-MM-DD, or just YYYY when the card only has a year
   rating: number; // out of 5, halves allowed
   oneLine: string; // "The whole book in one line…"
-  cover: string; // accent color for the typographic cover tile
+  cover: string; // accent color for the typographic cover tile (fallback when there's no image)
+  coverImage?: string; // real cover, saved in public/books/<slug>.jpg
   buddyNote?: string; // short line shown on the home page when this book's Q13 names another book
   answers: { q: number; text: string }[];
 }
@@ -64,6 +65,7 @@ export const BOOKS: Book[] = [
     oneLine:
       "Melody is new at Jenn’s school, and is the new bully victim. Then an unexpected friendship happens.",
     cover: "#5f7a6a",
+    coverImage: "/books/the-power-of-harmony.jpg",
     buddyNote: "both set in the 1960s, both with go-go boots",
     answers: [
       {
@@ -90,6 +92,7 @@ export const BOOKS: Book[] = [
     oneLine:
       "Ruthie is still new to New York and was adjusting, then she got in a car accident. Will she be brave enough to move on?",
     cover: "#c65f45",
+    coverImage: "/books/lucky-broken-girl.jpg",
     answers: [
       {
         q: 4,
@@ -114,6 +117,7 @@ export const BOOKS: Book[] = [
     rating: 5,
     oneLine: "Meg, Jo, Beth, and Amy are sisters. Follow them through the life of highs and lows!",
     cover: "#7a5c7e",
+    coverImage: "/books/little-women.jpg",
     answers: [
       {
         q: 1,
@@ -138,6 +142,7 @@ export const BOOKS: Book[] = [
     rating: 4,
     oneLine: "Follow Roz (Rozzum 7134) as she experiences the wild and the real world.",
     cover: "#3f5f5c",
+    coverImage: "/books/the-wild-robot.jpg",
     answers: [
       {
         q: 5,
@@ -187,4 +192,27 @@ export function getFavoriteQuestion(): Question | undefined {
     if (best === undefined || c > counts.get(best)! || (c === counts.get(best) && n < best)) best = n;
   }
   return best === undefined ? undefined : getQuestion(best);
+}
+
+// "4 books · 12 reflections · favorite question: Real life"
+export function getReadingStats() {
+  const reflections = BOOKS.reduce((sum, b) => sum + b.answers.length, 0);
+  const favorite = getFavoriteQuestion();
+  return [
+    `${BOOKS.length} books`,
+    `${reflections} reflections`,
+    favorite && `favorite question: ${favorite.title}`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+}
+
+// Books grouped by the year they were finished, newest year first.
+export function getBooksByYear(): [string, Book[]][] {
+  const years = new Map<string, Book[]>();
+  for (const b of BOOKS) {
+    const y = b.finished.slice(0, 4);
+    years.set(y, [...(years.get(y) ?? []), b]);
+  }
+  return Array.from(years).sort(([a], [b]) => b.localeCompare(a));
 }

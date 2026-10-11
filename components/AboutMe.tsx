@@ -1,3 +1,5 @@
+import { Container } from "@/components/layout";
+
 const interests = [
   "Cats",
   "Squirrels",
@@ -13,8 +15,8 @@ const interests = [
 
 export default function AboutMe() {
   return (
-    <section id="about" className="px-5 md:px-[54px] py-14 md:py-16 bg-wall">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+    <section id="about" className="py-14 md:py-16 bg-wall border-t border-line scroll-mt-16">
+      <Container className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* bio — set as an editorial pull-statement */}
         <div>
           <p
@@ -54,7 +56,7 @@ export default function AboutMe() {
             ))}
           </p>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

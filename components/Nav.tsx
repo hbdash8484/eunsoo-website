@@ -14,15 +14,18 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const id = href.replace("#", "");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    // On the home page, scroll smoothly. On inner pages the section isn't here,
+    // so let the link go to "/#section" normally.
+    const target = document.getElementById(href.replace("#", ""));
     setOpen(false);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav className="sticky top-0 z-50 bg-wall/95 backdrop-blur-sm border-b border-line">
-      <div className="flex items-center justify-between px-5 md:px-[54px] h-16">
+      <div className="mx-auto w-full max-w-[1120px] flex items-center justify-between px-5 md:px-10 h-16">
         <Link
           href="/"
           className="font-sans font-semibold text-ink uppercase"
@@ -36,7 +39,7 @@ export default function Nav() {
           {links.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`/${link.href}`}
               onClick={(e) => scrollTo(e, link.href)}
               className="font-sans text-faint hover:text-ink transition-colors uppercase min-h-[44px] flex items-center"
               style={{ fontSize: "11px", letterSpacing: "0.14em" }}
@@ -73,7 +76,7 @@ export default function Nav() {
           {links.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`/${link.href}`}
               onClick={(e) => scrollTo(e, link.href)}
               className="font-sans text-muted hover:text-ink transition-colors uppercase min-h-[44px] flex items-center"
               style={{ fontSize: "12px", letterSpacing: "0.14em" }}

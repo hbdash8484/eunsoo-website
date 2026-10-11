@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import { CoverTile, LevelMark, RatingDots } from "@/components/ReadingBits";
+import { ArticleColumn, Container, Mat, PageHeader, PageShell } from "@/components/layout";
+import { BookCover, LevelMark, RatingDots } from "@/components/ReadingBits";
 import { BOOKS, formatFinished, getBook, getBuddies, getQuestion } from "@/lib/reading";
 
 interface Props {
@@ -24,7 +23,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const label = "font-sans font-semibold uppercase";
-const labelStyle = { fontSize: "11px", letterSpacing: "0.2em" } as const;
 
 export default function ReadingPage({ params }: Props) {
   const book = getBook(params.slug);
@@ -36,36 +34,14 @@ export default function ReadingPage({ params }: Props) {
   const buddies = getBuddies(book);
 
   return (
-    <div className="min-h-screen flex flex-col bg-wall">
-      <Nav />
-      <main className="flex-1 px-5 md:px-[54px] pt-12 pb-16 md:pt-16">
-        <Link
-          href="/#reading"
-          className="font-sans text-faint hover:text-ink transition-colors uppercase inline-flex items-center min-h-[44px]"
-          style={{ fontSize: "11px", letterSpacing: "0.16em" }}
-        >
-          ← Back
-        </Link>
+    <PageShell>
+      <Container>
+        <ArticleColumn>
+          <PageHeader back="/reading" eyebrow="Reading card" title={book.title} meta={`by ${book.author}`} />
 
-        <div className="max-w-2xl">
-          {/* card header */}
-          <p className={`${label} text-rose-soft mt-6 mb-5`} style={labelStyle}>
-            <span className="text-rose">✦</span> Reading card
-          </p>
-          <div className="flex gap-6 items-start">
-            <CoverTile title={book.title} color={book.cover} className="w-[92px] h-[132px] flex-none" />
-            <div>
-              <h1
-                className="font-serif text-ink leading-[1.05]"
-                style={{ fontSize: "clamp(30px, 5vw, 46px)", letterSpacing: "-0.02em" }}
-              >
-                {book.title}
-              </h1>
-              <p className="font-sans text-muted mt-2" style={{ fontSize: "15px" }}>
-                by {book.author}
-              </p>
-            </div>
-          </div>
+          <Mat aspect="aspect-[16/9]" className="mb-2">
+            <BookCover book={book} priority sizes="260px" className="h-[86%] aspect-[2/3]" />
+          </Mat>
 
           <dl className="grid grid-cols-3 gap-4 border-y border-line py-4 mt-8">
             {[
@@ -170,9 +146,8 @@ export default function ReadingPage({ params }: Props) {
               </Link>
             )}
           </nav>
-        </div>
-      </main>
-      <Footer />
-    </div>
+        </ArticleColumn>
+      </Container>
+    </PageShell>
   );
 }
