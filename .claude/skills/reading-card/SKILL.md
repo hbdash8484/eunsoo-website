@@ -33,12 +33,16 @@ The question sheet is in [questions.md](questions.md). Read it to know what each
 - Add missing sentence-ending periods and fix obvious spacing; don't add or remove words.
 - Fix clear name slips to the character's name (she wrote "Ruth" for the character Ruthie).
 - Use typographic punctuation in the data: ’ for apostrophes, “ ” for quotes, – in "Frida Kahlo–style".
-- Use the book's real title capitalization and the author's real name spelling (check online if unsure).
+- Use the book's real title and the author's real name spelling (check online if unsure) — e.g. she wrote
+  "Little Woman" / "Laisa May alcott" → "Little Women" / "Louisa May Alcott". Character names follow the
+  book's spelling too ("Sally's" → "Sallie's" in Little Women).
+- A card covering a series ("The Wild Robot 1, 2, 3") → title `"The Wild Robot (Books 1–3)"`.
 - The original photo is **not** shown on the site. Don't copy it into `public/`.
 
 ## 3. Write the entry
 
-Add a new object at the **top** of `BOOKS` (newest first, by finished date):
+Add a new object to `BOOKS`, newest first by finished date. Usually that's the **top**. A year-only
+book goes after every full-date book from the same year (its month is unknown), and before older years:
 
 ```ts
 {
@@ -46,7 +50,7 @@ Add a new object at the **top** of `BOOKS` (newest first, by finished date):
   title: "Book Title",
   author: "Author Name",
   genre: "Novel",                    // as written on the card, capitalized
-  finished: "2026-09-28",            // card says 9.28.2026 → YYYY-MM-DD
+  finished: "2026-09-28",            // card says 9.28.2026 → YYYY-MM-DD; year only (or "2026?") → "2026"
   rating: 4.5,
   oneLine: "The whole book in one line, transcribed by the rules above.",
   cover: "#5f7a6a",                  // see palette below

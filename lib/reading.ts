@@ -45,7 +45,7 @@ export interface Book {
   title: string;
   author: string;
   genre: string;
-  finished: string; // YYYY-MM-DD
+  finished: string; // YYYY-MM-DD, or just YYYY when the card only has a year
   rating: number; // out of 5, halves allowed
   oneLine: string; // "The whole book in one line…"
   cover: string; // accent color for the typographic cover tile
@@ -106,6 +106,54 @@ export const BOOKS: Book[] = [
       },
     ],
   },
+  {
+    slug: "little-women",
+    title: "Little Women",
+    author: "Louisa May Alcott",
+    genre: "Classics",
+    finished: "2026",
+    rating: 5,
+    oneLine: "Meg, Jo, Beth, and Amy are sisters. Follow them through the life of highs and lows!",
+    cover: "#7a5c7e",
+    answers: [
+      {
+        q: 1,
+        text: "It’s a sad moment. It’s when the baby has scarlet fever in Beth’s arms. She must have been so sad and sorry and traumatized. It was so surprising because I’ve never seen or heard that a baby died.",
+      },
+      {
+        q: 6,
+        text: "Honestly, even if almost always my favorite character is the youngest, I just hate Amy. I can’t believe she was ungrateful to Jo (Josephine) and burned Jo’s tale book! Jo spent so much time writing and just because Amy wasn’t allowed to play she burns her sister’s hard work!!!?",
+      },
+      {
+        q: 7,
+        text: "Poverty & War. Jo’s family’s dad went to war and even if Meg (Margaret) wants to be rich (shown when she goes to Sallie’s party & the ball) they are poor so she wears hand-me-downs from her Mother. I’m still happy that she is grateful though.",
+      },
+    ],
+  },
+  {
+    slug: "the-wild-robot",
+    title: "The Wild Robot (Books 1–3)",
+    author: "Peter Brown",
+    genre: "Fiction",
+    finished: "2025",
+    rating: 4,
+    oneLine: "Follow Roz (Rozzum 7134) as she experiences the wild and the real world.",
+    cover: "#3f5f5c",
+    answers: [
+      {
+        q: 5,
+        text: "Rozzum decides to take care of Brightbill. The reason is too obvious: when Rozzum 7134 was escaping from a bear and storm, she accidentally crashes into a goose nest and kills Brightbill’s family.",
+      },
+      {
+        q: 10,
+        text: "At first I thought that some animals couldn’t get along. Now I realised that it is not true (even if it is fiction). A goose might became friends with a fox. Unexpected friendships could happen.",
+      },
+      {
+        q: 9,
+        text: "This book is mostly about climate change and the future. Even if it doesn’t clearly say that it is, I’m just guessing. But it is missing the point (even if humans are not the main focus) that humans are still going to dominate the world.",
+      },
+    ],
+  },
 ];
 
 export function getBook(slug: string) {
@@ -113,6 +161,7 @@ export function getBook(slug: string) {
 }
 
 export function formatFinished(date: string) {
+  if (/^\d{4}$/.test(date)) return date;
   return new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
