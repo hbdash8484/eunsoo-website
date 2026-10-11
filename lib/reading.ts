@@ -76,8 +76,7 @@ export const BOOKS: Book[] = [
       },
       {
         q: 7,
-        // "Sylliboy" is read from the handwriting — double-check with Danielle.
-        text: "In the book, Sarah and her friends bully Melody because she is Indian. This connects to racism. In the real world, people are still mean to Black people and it is unfair. The book also shows us what a lot of people think about the Sylliboy family. For example, Sarah, Nanny, and Jenn.",
+        text: "In the book, Sarah and her friends bully Melody because she is Indian. This connects to racism. In the real world, people are still mean to Black people and it is unfair. The book also shows us what a lot of people think about the Syliboy family. For example, Sarah, Nanny, and Jenn.",
       },
     ],
   },
